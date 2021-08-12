@@ -1,7 +1,6 @@
 ﻿
 #include <iostream>
 #include <string>
-#include <codecvt>
 #include "DataVector.h"
 
 using namespace std;
