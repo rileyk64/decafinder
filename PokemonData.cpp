@@ -1,7 +1,8 @@
-
+﻿
 #include "PokemonData.h"
 #include <iostream>
 #include <iomanip>
+#include <string>
 
 using namespace std;
 
@@ -36,224 +37,222 @@ PokemonData::PokemonData() {
     Padding = 0;
 }
 // Gets the typing name based on a given index.
-string PokemonData::GetTypingName(unsigned int typeIndex) {
+wstring PokemonData::GetTypingName(unsigned int typeIndex) {
     // Uses this as reference: https://bulbapedia.bulbagarden.net/wiki/Type_chart_data_structure_(Generation_III)
     switch (typeIndex) {
         case 0:
-            return "Normal";
+            return L"Normal";
         case 1:
-            return "Fighting";
+            return L"Fighting";
         case 2:
-            return "Flying";
+            return L"Flying";
         case 3:
-            return "Poison";
+            return L"Poison";
         case 4:
-            return "Ground";
+            return L"Ground";
         case 5:
-            return "Rock";
+            return L"Rock";
         case 6:
-            return "Bug";
+            return L"Bug";
         case 7:
-            return "Ghost";
+            return L"Ghost";
         case 8:
-            return "Steel";
+            return L"Steel";
         case 9:
-            return "???";
+            return L"???";
         case 10:
-            return "Fire";
+            return L"Fire";
         case 11:
-            return "Water";
+            return L"Water";
         case 12:
-            return "Grass";
+            return L"Grass";
         case 13:
-            return "Electric";
+            return L"Electric";
         case 14:
-            return "Psychic";
+            return L"Psychic";
         case 15:
-            return "Ice";
+            return L"Ice";
         case 16:
-            return "Dragon";
+            return L"Dragon";
         case 17:
-            return "Dark";
+            return L"Dark";
         case 18:
-            return "Cool";
+            return L"Cool";
         case 19:
-            return "Beauty";
+            return L"Beauty";
         case 20:
-            return "Cute";
+            return L"Cute";
         case 21:
-            return "Smart";
+            return L"Smart";
         case 22:
-            return "Tough";
+            return L"Tough";
         default:
-            string Glitch = "Glitch " + to_string(typeIndex);
-
-            return Glitch;
+            return L"Glitch " + to_wstring(typeIndex);
     }
 }
 // Takes in an ability index number and outputs a string with the name of the ability.
-string PokemonData::GetAbilityName(unsigned int ability) {
+wstring PokemonData::GetAbilityName(unsigned int ability) {
     // Using this article as a guide. https://bulbapedia.bulbagarden.net/wiki/Ability#List_of_Abilities
 
     switch(ability) {
         case 0:
-            return "No ability";
+            return L"No ability";
         case 1:
-            return "Stench";
+            return L"Stench";
         case 2:
-            return "Drizzle";
+            return L"Drizzle";
         case 3:
-            return "Speed Boost";
+            return L"Speed Boost";
         case 4:
-            return "Battle Armor";
+            return L"Battle Armor";
         case 5:
-            return "Sturdy";
+            return L"Sturdy";
         case 6:
-             return "Damp";
+             return L"Damp";
         case 7:
-            return "Limber";
+            return L"Limber";
         case 8:
-            return "Sand Veil";
+            return L"Sand Veil";
         case 9:
-            return "Static";
+            return L"Static";
         case 10:
-            return "Volt Absorb";
+            return L"Volt Absorb";
         case 11:
-            return "Water Absorb";
+            return L"Water Absorb";
         case 12:
-            return "Oblivious";
+            return L"Oblivious";
         case 13:
-            return "Cloud Nine";
+            return L"Cloud Nine";
         case 14:
-            return "Compound Eyes";
+            return L"Compound Eyes";
         case 15:
-            return "Insomnia";
+            return L"Insomnia";
         case 16:
-            return "Color Change";
+            return L"Color Change";
         case 17:
-            return "Immunity";
+            return L"Immunity";
         case 18:
-            return "Flash Fire";
+            return L"Flash Fire";
         case 19:
-            return "Shield Dust";
+            return L"Shield Dust";
         case 20:
-            return "Own Tempo";
+            return L"Own Tempo";
         case 21:
-            return "Suction Cups";
+            return L"Suction Cups";
         case 22:
-            return "Intimidate";
+            return L"Intimidate";
         case 23:
-            return "Shadow Tag";
+            return L"Shadow Tag";
         case 24:
-            return "Rough Skin";
+            return L"Rough Skin";
         case 25:
-            return "Wonder Guard";
+            return L"Wonder Guard";
         case 26:
-            return "Levitate";
+            return L"Levitate";
         case 27:
-            return "Effect Spore";
+            return L"Effect Spore";
         case 28:
-            return "Synchronize";
+            return L"Synchronize";
         case 29:
-            return "Clear Body";
+            return L"Clear Body";
         case 30:
-            return "Natural Cure";
+            return L"Natural Cure";
         case 31:
-            return "Lightning Rod";
+            return L"Lightning Rod";
         case 32:
-            return "Serene Grace";
+            return L"Serene Grace";
         case 33:
-            return "Swift Swim";
+            return L"Swift Swim";
         case 34:
-            return "Chlorophyll";
+            return L"Chlorophyll";
         case 35:
-            return "Illuminate";
+            return L"Illuminate";
         case 36:
-            return "Trace";
+            return L"Trace";
         case 37:
-            return "Huge Power";
+            return L"Huge Power";
         case 38:
-            return "Poison Point";
+            return L"Poison Point";
         case 39:
-            return "Inner Focus";
+            return L"Inner Focus";
         case 40:
-            return "Magma Armor";
+            return L"Magma Armor";
         case 41:
-            return "Water Veil";
+            return L"Water Veil";
         case 42:
-            return "Magnet Pull";
+            return L"Magnet Pull";
         case 43:
-            return "Soundproof";
+            return L"Soundproof";
         case 44:
-            return "Rain Dish";
+            return L"Rain Dish";
         case 45:
-            return "Sand Stream";
+            return L"Sand Stream";
         case 46:
-            return "Pressure";
+            return L"Pressure";
         case 47:
-            return "Thick Fat";
+            return L"Thick Fat";
         case 48:
-            return "Early Bird";
+            return L"Early Bird";
         case 49:
-            return "Flame Body";
+            return L"Flame Body";
         case 50:
-            return "Run Away";
+            return L"Run Away";
         case 51:
-            return "Keen Eye";
+            return L"Keen Eye";
         case 52:
-            return "Hyper Cutter";
+            return L"Hyper Cutter";
         case 53:
-            return "Pickup";
+            return L"Pickup";
         case 54:
-            return "Truant";
+            return L"Truant";
         case 55:
-            return "Hustle";
+            return L"Hustle";
         case 56:
-            return "Cute Charm";
+            return L"Cute Charm";
         case 57:
-            return "Plus";
+            return L"Plus";
         case 58:
-            return "Minus";
+            return L"Minus";
         case 59:
-            return "Forecast";
+            return L"Forecast";
         case 60:
-            return "Sticky Hold";
+            return L"Sticky Hold";
         case 61:
-             return "Shed Skin";
+            return L"Shed Skin";
         case 62:
-            return "Guts";
+            return L"Guts";
         case 63:
-            return "Marvel Scale";
+            return L"Marvel Scale";
         case 64:
-            return "Liquid Ooze";
+            return L"Liquid Ooze";
         case 65:
-            return "Overgrow";
+            return L"Overgrow";
         case 66:
-            return "Blaze";
+            return L"Blaze";
         case 67:
-            return "Torrent";
+            return L"Torrent";
         case 68:
-            return "Swarm";
+            return L"Swarm";
         case 69:
-            return "Rock Head";
+            return L"Rock Head";
         case 70:
-            return "Drought";
+            return L"Drought";
         case 71:
-            return "Arena Trap";
+            return L"Arena Trap";
         case 72:
-            return "Vital Spirit";
+            return L"Vital Spirit";
         case 73:
-            return "White Smoke";
+            return L"White Smoke";
         case 74:
-            return "Pure Power";
+            return L"Pure Power";
         case 75:
-            return "Shell Armor";
+            return L"Shell Armor";
         case 76:
-            return "Cacophony";
+            return L"Cacophony";
         case 77:
-            return "Air Lock";
+            return L"Air Lock";
         default:
-            return "Glitch " + to_string(ability);
+            return L"Glitch " + to_wstring(ability);
     }
 }
 
@@ -298,103 +297,103 @@ void PokemonData::PrintStats() {
 
     // If both typings are the same, it's just output as a single typing.
     if (Type1 == Type2) {
-        cout << "Typing        : " << GetTypingName(Type1) << endl;
+        wcout << "Typing        : " << GetTypingName(Type1) << endl;
     }
     else {
         // If they're different, print out both.
-        cout << "Typing        : " << GetTypingName(Type1) << ", " << GetTypingName(Type2) << endl;
+        wcout << "Typing        : " << GetTypingName(Type1) << ", " << GetTypingName(Type2) << endl;
     }
 
-    cout << "HP            : " << setw(3) << right << dec << HP << endl;
-    cout << "Atk           : " << setw(3) << right << dec << Atk << endl;
-    cout << "Def           : " << setw(3) << right << dec << Def << endl;
-    cout << "SpA           : " << setw(3) << right << dec << SpA << endl;
-    cout << "SpD           : " << setw(3) << right << dec << SpD << endl;
-    cout << "Spe           : " << setw(3) << right << dec << Spe << endl;
-    cout << "Ability 1     : " << GetAbilityName(Ability1) << endl;
-    cout << "Ability 2     : " << GetAbilityName(Ability2) << endl;
+    wcout << "HP            : " << setw(3) << right << dec << HP << endl;
+    wcout << "Atk           : " << setw(3) << right << dec << Atk << endl;
+    wcout << "Def           : " << setw(3) << right << dec << Def << endl;
+    wcout << "SpA           : " << setw(3) << right << dec << SpA << endl;
+    wcout << "SpD           : " << setw(3) << right << dec << SpD << endl;
+    wcout << "Spe           : " << setw(3) << right << dec << Spe << endl;
+    wcout << "Ability 1     : " << GetAbilityName(Ability1) << endl;
+    wcout << "Ability 2     : " << GetAbilityName(Ability2) << endl;
 
 }
 unsigned int PokemonData::GetBST() {
     return HP + Atk + Def + SpA + SpD + Spe;
 }
 // Helper function for PrintMisc, gets egg group name from egg group index.
-string PokemonData::GetEggGroupName(unsigned int eggGroup) {
+wstring PokemonData::GetEggGroupName(unsigned int eggGroup) {
     switch(eggGroup) {
         case 1:
-            return "Monster";
+            return L"Monster";
         case 2:
-            return "Water 1";
+            return L"Water 1";
         case 3:
-            return "Bug";
+            return L"Bug";
         case 4:
-            return "Flying";
+            return L"Flying";
         case 5:
-            return "Field";
+            return L"Field";
         case 6:
-            return "Fairy";
+            return L"Fairy";
         case 7:
-            return "Grass";
+            return L"Grass";
         case 8:
-            return "Human-Like";
+            return L"Human-Like";
         case 9:
-            return "Water 3";
+            return L"Water 3";
         case 10:
-            return "Mineral";
+            return L"Mineral";
         case 11:
-            return "Amorphous";
+            return L"Amorphous";
         case 12:
-            return "Water 2";
+            return L"Water 2";
         case 13:
-            return "Ditto";
+            return L"Ditto";
         case 14:
-            return "Dragon";
+            return L"Dragon";
         case 15:
-            return "Undiscovered";
+            return L"Undiscovered";
         default:
-            return "Glitch " + to_string(eggGroup);
+            return L"Glitch " + to_wstring(eggGroup);
 
     }
 }
 
 // Helper function for PrintMisc, gets exp curve name from exp curve index.
-string PokemonData::GetCurveName(unsigned int curve) {
+wstring PokemonData::GetCurveName(unsigned int curve) {
     switch(curve) {
         case 0:
-            return "Medium Fast";
+            return L"Medium Fast";
         case 1:
-            return "Erratic";
+            return L"Erratic";
         case 2:
-            return "Fluctuating";
+            return L"Fluctuating";
         case 3:
-            return "Medium Slow";
+            return L"Medium Slow";
         case 4:
-            return "Fast";
+            return L"Fast";
         case 5:
-            return "Slow";
+            return L"Slow";
         default:
-            return "Glitch " + to_string(curve);
+            return L"Glitch " + to_wstring(curve);
     }
 }
 
 // Print out less important but still interesting information.
 void PokemonData::PrintMisc() {
 
-    /*cout << "Catch rate    : " << dec << CatchRate << endl;
-    cout << "Base EXP Yield: " << dec << ExpYield << endl;*/
+    /*wcout << "Catch rate    : " << dec << CatchRate << endl;
+    wcout << "Base EXP Yield: " << dec << ExpYield << endl;*/
     // EV Yield is a bit more complicated and does binary stuff (and really isn't that important)
     // so im gonna leave that for later.
-    // cout << "Effort Yield  : " << dec << ..
-    cout << "Item 1 Index  : 0x" << hex << Item1 << endl;
-    cout << "Item 2 Index  : 0x" << hex << Item2 << endl;
-    cout << "EXP Curve     : " << GetCurveName(ExpCurve) << endl;
+    // wcout << "Effort Yield  : " << dec << ..
+    wcout << "Item 1 Index  : 0x" << hex << Item1 << endl;
+    wcout << "Item 2 Index  : 0x" << hex << Item2 << endl;
+    wcout << "EXP Curve     : " << GetCurveName(ExpCurve) << endl;
     if (Egg1 != Egg2) {
         // If the egg groups are the same, just output one.
-        cout << "Egg Group     : " << GetEggGroupName(Egg1) << ", " << GetEggGroupName(Egg2) << endl;
+        wcout << "Egg Group     : " << GetEggGroupName(Egg1) << ", " << GetEggGroupName(Egg2) << endl;
     }
     else {
         // If they're different output both.
-        cout << "Egg Group     : " << GetEggGroupName(Egg1) << endl;
+        wcout << "Egg Group     : " << GetEggGroupName(Egg1) << endl;
     }
 
 
