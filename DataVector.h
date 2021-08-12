@@ -28,8 +28,8 @@ public:
     vector<bool> GetStablePokemon(unsigned int minID, unsigned int maxID);
     vector<PokemonData> dataVector;
     vector<int> dexNums;
-    vector<string> names;
-    vector<string> abilitynames;
+    vector<wstring> names;
+    vector<wstring> abilitynames;
     vector<unsigned int> AnimIDs;
     vector<unsigned int> AnimAddresses;
     vector<unsigned int> pokeCries;
@@ -39,7 +39,7 @@ private:
     vector<unsigned int> NameCharacterVec;
     vector<unsigned int> AbilityNameCharacterVec;
 
-    char32_t CharacterEncoder(int index);
+    wchar_t CharacterEncoder(int index);
 
 };
 

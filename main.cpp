@@ -1,29 +1,36 @@
-#include <iostream>
+﻿#include <iostream>
 #include "PokemonData.h"
 #include "DataVector.h"
+#if defined(_WIN32) || defined(WIN32)
+#include <io.h>
+#include <fcntl.h>
+#endif
 using namespace std;
 int main() {
-    cout << "-------======{ Decamark Finder }======-------" << endl;
+    #if defined(_WIN32) || defined(WIN32)
+    _setmode(_fileno(stdout), _O_U16TEXT);
+    #endif
+    wcout << "-------======{ Decamark Finder }======-------" << endl;
 
-    cout << "                 by rileyk64                   " << endl;
+    wcout << "                 by rileyk64                   " << endl;
 
-    cout << "***********************************************" << endl;
+    wcout << "***********************************************" << endl;
 
     // Create an object that will contain all the pokemon's data, and set all the values.
     DataVector SpeciesData;
     // I have it say that it's getting data/names because it takes a bit to set all the names.
-    cout << "Getting data..." << endl;
+    wcout << "Getting data..." << endl;
     SpeciesData.SetData("speciesdata.txt");
     SpeciesData.SetDexNums("dexnumbersadjust.txt");
     SpeciesData.SetAnims("emeraldFrontAnimIDs.txt", "emeraldSpeciesAnimAddresses.txt");
     SpeciesData.SetCries("emeraldCryData.txt");
-    cout << "Done!" << endl;
+    wcout << "Done!" << endl;
 
-    cout << "Getting names..." << endl;
+    wcout << "Getting names..." << endl;
     SpeciesData.SetNames("speciesnames.txt");
-    cout << "Done!" << endl;
+    wcout << "Done!" << endl;
     // SpeciesData.SetAbilityNames("leafgreenabilitynames.txt");
-    cout << "***********************************************" << endl;
+    wcout << "***********************************************" << endl;
     char SIorQuit;
     bool programContinue;
     bool CheckAbility1;
@@ -54,7 +61,7 @@ int main() {
     /*
     SpeciesData.PrintLargest();
     for (i = 0; i < SpeciesData.AnimAddresses.size(); i++) {
-        cout << dec << i << ": 0x" << hex << SpeciesData.AnimAddresses.at(i) << dec << endl;
+        wcout << dec << i << ": 0x" << hex << SpeciesData.AnimAddresses.at(i) << dec << endl;
     }
     for (i = 0; i < 0x10000; i++) {
         if (SpeciesData.names.at(i).size() >13800 && SpeciesData.names.at(i).size() < 13850) {
@@ -64,8 +71,8 @@ int main() {
     */
 
     /*for (i = 0; i < 0x100; i++) {
-        cout << "Glitch " << i << ": " << SpeciesData.abilitynames.at(i) << endl;
-        cout << endl << "*******************************************************" << endl;
+        wcout << "Glitch " << i << ": " << SpeciesData.abilitynames.at(i) << endl;
+        wcout << endl << "*******************************************************" << endl;
     }*/
    /* int maxname = 0;
     int maxnameloc = 0;
@@ -82,12 +89,12 @@ int main() {
 
         }
     }
-    // cout << maxnameloc << "biggest ability" << endl;
+    // wcout << maxnameloc << "biggest ability" << endl;
     SpeciesData.PrintLargest();
-   cout << "**** character at: " << SpeciesData.names.at(8517).at(1000) << endl;
+   wcout << "**** character at: " << SpeciesData.names.at(8517).at(1000) << endl;
     do {
-        cout << "Enter search mode or index checker mode?" << endl;
-        cout << "(S for search, I for index checker, any other to quit)" << endl;
+        wcout << "Enter search mode or index checker mode?" << endl;
+        wcout << "(S for search, I for index checker, any other to quit)" << endl;
         cin >> SIorQuit;
         switch (SIorQuit) {
             case 'S':
@@ -98,46 +105,46 @@ int main() {
                 // Search mode.
                 // *****************************************************
 
-                cout << "Choose minimum and maximum range." << endl;
-                cout << "(For all pokemon, minimum is 0 and maximum is 65535)" << endl;
-                cout << "Select minimum ID: " << endl;
+                wcout << "Choose minimum and maximum range." << endl;
+                wcout << "(For all pokemon, minimum is 0 and maximum is 65535)" << endl;
+                wcout << "Select minimum ID: " << endl;
 
                 // Get the minimum ID, make sure its within bounds.
 
                 do {
                     cin >> minID;
                     if (!(minID >= 0 && minID <= 0xFFFF)) {
-                        cout << "Invalid choice of minimum ID. (Must be between 0 and 65535)" << endl;
-                        cout << "Select minimum ID: " << endl;
+                        wcout << "Invalid choice of minimum ID. (Must be between 0 and 65535)" << endl;
+                        wcout << "Select minimum ID: " << endl;
                     }
                 } while (!(minID >= 0 && minID <= 0xFFFF));
 
-                cout << "Select maximum ID: " << endl;
+                wcout << "Select maximum ID: " << endl;
 
                 // Get the max ID, make sure its within bounds.
                 do {
                     cin >> maxID;
                     // Check if max ID is in bounds, is greater than min ID, and is a number.
                     if (!(maxID >= 0 && maxID <= 0xFFFF && (maxID > minID))) {
-                        cout << "Invalid choice of maximum ID. (Must be between 0 and 65535 and/or greater than minimum ID.)" << endl;
-                        cout << "Select maximum ID: " << endl;
+                        wcout << "Invalid choice of maximum ID. (Must be between 0 and 65535 and/or greater than minimum ID.)" << endl;
+                        wcout << "Select maximum ID: " << endl;
                     }
                 } while (!(maxID >= 0 && maxID <= 0xFFFF && (maxID > minID)));
 
-                cout << "Filter first ability? (Y/N)" << endl;
+                wcout << "Filter first ability? (Y/N)" << endl;
                 cin >> Ab1YesNo;
                 switch (Ab1YesNo) {
                     case 'Y':
                     case 'y':
                         CheckAbility1 = true;
                         // I have these checks in each filter to make the final filtering easier.
-                        cout << "Which ability would you like? (input index between 0 and 255)" << endl;
+                        wcout << "Which ability would you like? (input index between 0 and 255)" << endl;
 
                         // Make sure user choice is within bounds.
                         do {
                             cin >> ab1index;
                             if (!(ab1index >= 0 && ab1index <= 255)) {
-                                cout << "Invalid choice. (Must be between 0 and 255)" << endl;
+                                wcout << "Invalid choice. (Must be between 0 and 255)" << endl;
                             }
                         } while (!(ab1index >= 0 && ab1index <= 255));
                         ab1Vec = SpeciesData.GetPokemonWithAbility1(ab1index, minID, maxID);
@@ -147,17 +154,17 @@ int main() {
                         break;
                 }
 
-                cout << "Filter second ability? (Y/N)" << endl;
+                wcout << "Filter second ability? (Y/N)" << endl;
                 cin >> Ab2YesNo;
                 switch (Ab2YesNo) {
                     case 'Y':
                     case 'y':
                         CheckAbility2 = true;
-                        cout << "Which second ability would you like? (input index between 0 and 255)" << endl;
+                        wcout << "Which second ability would you like? (input index between 0 and 255)" << endl;
                         do {
                             cin >> ab2index;
                             if (!(ab2index >= 0 && ab2index <= 255)) {
-                                cout << "Invalid choice. (Must be between 0 and 255)" << endl;
+                                wcout << "Invalid choice. (Must be between 0 and 255)" << endl;
                             }
                         } while (!(ab2index >= 0 && ab2index <= 255));
                         ab2Vec = SpeciesData.GetPokemonWithAbility2(ab1index, minID, maxID);
@@ -167,18 +174,18 @@ int main() {
                         break;
                 }
 
-                cout << "Filter typing? (0 for no, 1 for first typing, 2 for second, 3 for both)" << endl;
+                wcout << "Filter typing? (0 for no, 1 for first typing, 2 for second, 3 for both)" << endl;
                 cin >> TypingYesNo;
                 switch (TypingYesNo) {
                     case '1':
                         // Filter by first typing.
                         CheckTyping = true;
-                        cout << "Which typing would you like?" << endl;
+                        wcout << "Which typing would you like?" << endl;
                         do {
-                            cout << "Enter first type index. (0 to 255)" << endl;
+                            wcout << "Enter first type index. (0 to 255)" << endl;
                             cin >> type1index;
                             if (!(type1index >= 0 && type1index <= 255)) {
-                                cout << "Invalid choice. (Must be between 0 and 255)" << endl;
+                                wcout << "Invalid choice. (Must be between 0 and 255)" << endl;
                             }
                         } while (!(type1index >= 0 && type1index <= 255));
 
@@ -187,12 +194,12 @@ int main() {
                     case '2':
                         // Filter by second typing.
                         CheckTyping = true;
-                        cout << "Which typing would you like?" << endl;
+                        wcout << "Which typing would you like?" << endl;
                         do {
-                            cout << "Enter second type index. (0 to 255)" << endl;
+                            wcout << "Enter second type index. (0 to 255)" << endl;
                             cin >> type2index;
                             if (!(type2index >= 0 && type2index <= 255)) {
-                                cout << "Invalid choice. (Must be between 0 and 255)" << endl;
+                                wcout << "Invalid choice. (Must be between 0 and 255)" << endl;
                             }
                         } while (!(type2index >= 0 && type2index <= 255));
 
@@ -200,19 +207,19 @@ int main() {
                         break;
                     case '3':
                         CheckTyping = true;
-                        cout << "Which typing would you like?" << endl;
+                        wcout << "Which typing would you like?" << endl;
                         do {
-                            cout << "Enter first type index. (0 to 255)" << endl;
+                            wcout << "Enter first type index. (0 to 255)" << endl;
                             cin >> type1index;
                             if (!(type1index >= 0 && type1index <= 255)) {
-                                cout << "Invalid choice. (Must be between 0 and 255)" << endl;
+                                wcout << "Invalid choice. (Must be between 0 and 255)" << endl;
                             }
                         } while (!(type1index >= 0 && type1index <= 255));
                         do {
-                            cout << "Enter second type index. (0 to 255)" << endl;
+                            wcout << "Enter second type index. (0 to 255)" << endl;
                             cin >> type2index;
                             if (!(type2index >= 0 && type2index <= 255)) {
-                                cout << "Invalid choice. (Must be between 0 and 255)" << endl;
+                                wcout << "Invalid choice. (Must be between 0 and 255)" << endl;
                             }
                         } while (!(type2index >= 0 && type2index <= 255));
 
@@ -225,17 +232,17 @@ int main() {
                 }
 
                 // Ask to filter base stat total.
-                cout << "Filter base stat total? (Y/N)" << endl;
+                wcout << "Filter base stat total? (Y/N)" << endl;
                 cin >> BSTYesNo;
                 switch (BSTYesNo) {
                     case 'Y':
                     case 'y':
                         CheckBST = true;
                         do {
-                            cout << "Enter BST. (0 to 1530)" << endl;
+                            wcout << "Enter BST. (0 to 1530)" << endl;
                             cin >> bst;
                             if (!(bst >= 0 && bst <= 255 * 6)) {
-                                cout << "Invalid choice. (Must be between 0 and 1530)" << endl;
+                                wcout << "Invalid choice. (Must be between 0 and 1530)" << endl;
                             }
                         } while (!(bst >= 0 && bst <= 255 * 6));
                         BSTVec = SpeciesData.GetPokemonWithBST(bst, minID, maxID);
@@ -247,7 +254,7 @@ int main() {
                 }
 
                 // Ask to filter stability.
-                cout << "Filter type/name/EXP stability? (Y/N)" << endl;
+                wcout << "Filter type/name/EXP stability? (Y/N)" << endl;
                 cin >> StabYesNo;
                 switch (StabYesNo) {
                     case 'Y':
@@ -304,14 +311,14 @@ int main() {
                     // If the number at an index is 1, that means it passed all the filters. Add index to filtered species vector.
                     if (resultingVector.at(i) == 1) {
                         filteredSpeciesVector.push_back(i + minID);
-                        cout << "Pokemon: " << dec << i + minID << " (0x" << hex << i + minID << ")" << endl;
+                        wcout << "Pokemon: " << dec << i + minID << " (0x" << hex << i + minID << ")" << endl;
                     }
                 }
                 // Check if the vector is empty (i.e there were no pokemon that matched all the filters.
                 if (filteredSpeciesVector.empty()) {
-                    cout << "No Pokemon matched your specifications." << endl;
+                    wcout << "No Pokemon matched your specifications." << endl;
                 } else {
-                    cout << "Detailed description of each result? (Y/N)" << endl;
+                    wcout << "Detailed description of each result? (Y/N)" << endl;
                     cin >> YesNo;
                     switch (YesNo) {
                         case 'Y':
@@ -319,7 +326,7 @@ int main() {
                             // If they said yes, go through each filtered index and print out their information.
                             for (i = 0; i < filteredSpeciesVector.size(); i++) {
                                 SpeciesData.PrintDataAtIndex(filteredSpeciesVector.at(i));
-                                cout << endl;
+                                wcout << endl;
                             }
                             break;
                         default:
@@ -327,7 +334,7 @@ int main() {
                     }
                 }
                 // Another space for better formatting.
-                cout << endl;
+                wcout << endl;
                 break;
             }
             case 'I':
@@ -344,19 +351,19 @@ int main() {
                      * If the index is invalid then ask them to choose again.
                      */
                     do {
-                        cout << "What index would you like to check?" << endl;
+                        wcout << "What index would you like to check?" << endl;
                         cin >> hex >> index;
                         if (!((index >= 0) && (index <= 65535))) {
-                            cout << "Error: please choose a number between 0 and 65535." << endl << endl;
+                            wcout << "Error: please choose a number between 0 and 65535." << endl << endl;
                         }
                     }
                     while ((!((index >= 0) && (index <= 65535))));
                     SpeciesData.PrintDataAtIndex(index);
-                    cout << endl;
-                    cout << "Continue? (Y/N)" << endl;
+                    wcout << endl;
+                    wcout << "Continue? (Y/N)" << endl;
                     cin >> YesNo;
                 } while (YesNo != 'N' && YesNo != 'n');
-                cout << endl;
+                wcout << endl;
                 break;
             }
             default:

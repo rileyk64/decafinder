@@ -1,4 +1,4 @@
-
+﻿
 #ifndef FINALPROJECT_POKEMONDATA_H
 #define FINALPROJECT_POKEMONDATA_H
 
@@ -53,10 +53,10 @@ private:
     unsigned int Padding;
     unsigned int PaddingHigh;
     unsigned int PaddingLow;
-    string GetTypingName(unsigned int typeIndex);
-    string GetAbilityName(unsigned int ability);
-    string GetEggGroupName(unsigned int eggGroup);
-    string GetCurveName(unsigned int curve);
+    wstring GetTypingName(unsigned int typeIndex);
+    wstring GetAbilityName(unsigned int ability);
+    wstring GetEggGroupName(unsigned int eggGroup);
+    wstring GetCurveName(unsigned int curve);
 
 
 };

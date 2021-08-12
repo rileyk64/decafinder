@@ -1,4 +1,4 @@
-
+﻿
 #include <iostream>
 #include <string>
 #include "DataVector.h"
@@ -7,7 +7,7 @@ using namespace std;
 
 
 // Character encoder for names.
-char32_t DataVector::CharacterEncoder(int index) {
+wchar_t DataVector::CharacterEncoder(int index) {
     // uses gen 3 character encoding:
     // https://bulbapedia.bulbagarden.net/wiki/Character_encoding_(Generation_III)
     switch (index) {
@@ -16,90 +16,89 @@ char32_t DataVector::CharacterEncoder(int index) {
         default:
             return ' ';
         case 1:
-            return 'A'; // U'À';
+            return L'À';
         case 2:
-            return 'A'; // U'Á';
+            return L'Á';
         case 3:
-            return 'A'; // U'Â';
+            return L'Â';
         case 4:
-            return 'C'; // U'Ç';
+            return L'Ç';
         case 5:
-            return 'E'; // U'È';
+            return L'È';
         case 6:
-            return 'E'; // U'É';
+            return L'É';
         case 7:
-            return 'E'; // U'Ê';
+            return L'Ê';
         case 8:
-            return 'E'; // U'Ë';
+            return L'Ë';
         case 9:
-            return 'I'; // U'Ì';
+            return L'Ì';
         case 10:
             return ' ';
         case 11:
-            return 'I'; // U'Î';
+            return L'Î';
         case 12:
-            return 'I'; // U'Ï';
+            return L'Ï';
         case 13:
-            return 'O'; // U'Ò';
+            return L'Ò';
         case 14:
-            return 'O'; // U'Ó';
+            return L'Ó';
         case 15:
-            return 'O'; // U'Ô';
+            return L'Ô';
         case 16:
-            return 'C'; // U'Œ';
+            return L'Œ';
         case 17:
-            return 'U'; // U'Ù';
+            return L'Ù';
         case 18:
-            return 'U'; // U'Ú';
+            return L'Ú';
         case 19:
-            return 'U'; // U'Û';
+            return L'Û';
         case 20:
-            return 'N'; // U'Ñ';
+            return L'Ñ';
         case 21:
-            return 'B'; // U'ß';
+            return L'ß';
         case 22:
-            return 'a'; // U'à';
+            return L'à';
         case 23:
-            return 'a'; // U'á';
+            return L'á';
         case 25:
-            return 'c'; // U'ç';
+            return L'ç';
         case 26:
-            return 'e'; // U'è';
+            return L'è';
         case 27:
-            return 'e'; // U'é';
+            return L'é';
         case 28:
-            return 'e'; // U'ê';
+            return L'ê';
         case 29:
-            return 'e'; // U'ë';
+            return L'ë';
         case 30:
-            return 'i'; // U'ì';
+            return L'ì';
         case 32:
-            return 'i'; // U'î';
+            return L'î';
         case 33:
-            return 'i'; // U'ï';
+            return L'ï';
         case 34:
-            return 'o'; // U'ò';
+            return L'ò';
         case 35:
-            return 'o'; // U'ó';
+            return L'ó';
         case 36:
-            return 'o'; // U'ô';
+            return L'ô';
         case 37:
-            return 'c'; // U'œ';
+            return L'œ';
         case 38:
-            return 'u'; // U'ù';
+            return L'ù';
         case 39:
-            return 'u'; // U'ú';
+            return L'ú';
         case 40:
-            return 'u'; // U'û';
+            return L'û';
         case 41:
-            return 'n'; // U'ñ';
+            return L'ñ';
         case 42:
-            return 'e'; // U'º';
+            return L'º';
         case 43:
-            return 'a'; // U'ª';
+            return L'ª';
         case 44:
-            //Shortened because its two characters.
-            return 'e'; // U'ᵉ';
+            return L'ᵉ';
         case 45:
             return '&';
         case 46:
@@ -111,9 +110,9 @@ char32_t DataVector::CharacterEncoder(int index) {
         case 54:
             return ';';
         case 80:
-            return 'O'; // U'▯';
+            return L'▯';
         case 81:
-            return '?'; // U'¿';
+            return L'¿';
         case 82:
             return 'i';
         case 83:
@@ -131,7 +130,7 @@ char32_t DataVector::CharacterEncoder(int index) {
         case 89:
             return '<';
         case 90:
-            return 'I'; // U'Í';
+            return L'Í';
         case 91:
             return '%';
         case 92:
@@ -139,17 +138,17 @@ char32_t DataVector::CharacterEncoder(int index) {
         case 93:
             return ')';
         case 104:
-            return 'a'; // U'â';
+            return L'â';
         case 111:
-            return 'i'; // U'í';
+            return L'í';
         case 121:
-            return '^'; // U'⬆';
+            return L'⬆';
         case 122:
-            return 'v'; // U'⬇';
+            return L'⬇';
         case 123:
-            return '<'; // U'⬅';
+            return L'⬅';
         case 124:
-            return '>'; // U'➡';
+            return L'➡';
         case 125:
         case 126:
         case 127:
@@ -161,13 +160,13 @@ char32_t DataVector::CharacterEncoder(int index) {
             // I don't know how to implement that though.
             return '*';
         case 132:
-            return 'e'; // U'ᵉ';
+            return L'ᵉ';
         case 133:
             return '<';
         case 134:
             return '>';
         case 160:
-            return U'ʳ';
+            return L'ʳ';
         case 161:
             return '0';
         case 162:
@@ -197,21 +196,21 @@ char32_t DataVector::CharacterEncoder(int index) {
         case 174:
             return '-';
         case 175:
-            return U'・';
+            return L'・';
         case 176:
             return '.';
         case 177:
-            return '"'; // U'“';
+            return L'“';
         case 178:
-            return '"'; // U'”';
+            return L'”';
         case 179:
-            return '\''; // U'‘';
+            return L'‘';
         case 180:
-            return '\''; // U'’';
+            return L'’';
         case 181:
-            return 'M'; // U'♂';
+            return L'♂';
         case 182:
-            return 'F'; // U'♀';
+            return L'♀';
         case 183:
             return '$';
         case 184:
@@ -261,7 +260,7 @@ char32_t DataVector::CharacterEncoder(int index) {
         case 206:
             return 'T';
         case 207:
-            return 'U';
+            return 'L';
         case 208:
             return 'V';
         case 209:
@@ -313,7 +312,7 @@ char32_t DataVector::CharacterEncoder(int index) {
         case 232:
             return 't';
         case 233:
-            return 'u';
+            return 'L';
         case 234:
             return 'v';
         case 235:
@@ -325,21 +324,21 @@ char32_t DataVector::CharacterEncoder(int index) {
         case 238:
             return 'z';
         case 239:
-            return '>'; // U'▶';
+            return L'▶';
         case 240:
             return ':';
         case 241:
-            return 'A'; // U'Ä';
+            return L'Ä';
         case 242:
-            return 'O'; // 'Ö';
+            return 'Ö';
         case 243:
-            return 'U'; // U'Ü';
+            return L'Ü';
         case 244:
-            return 'a'; // U'ä';
+            return L'ä';
         case 245:
-            return 'o'; // U'ö';
+            return L'ö';
         case 246:
-            return 'u'; // U'ü';
+            return L'ü';
         case 250:
         case 251:
         case 252:
@@ -348,7 +347,6 @@ char32_t DataVector::CharacterEncoder(int index) {
         case 255:
             // Each of these is a special control character, effects would be too hard to implement.
             return '*';
-
     }
 }
 
@@ -357,7 +355,7 @@ void DataVector::SetData(const string& filename) {
     ifstream fileInput;
     fileInput.open(filename);
     if (!fileInput.is_open()) {
-        cout << "There was an error opening the file." << endl;
+        wcout << "There was an error opening the file." << endl;
         return;
     }
     int i;
@@ -379,7 +377,7 @@ void DataVector::SetNames(const string& filename) {
 
     // Check if it failed to open.
     if (!FileInput.is_open()) {
-        cout << "There was an error opening the file." << endl;
+        wcout << "There was an error opening the file." << endl;
         return;
     }
     // Resize the "names" private data member to be 65536 strings long.
@@ -413,7 +411,7 @@ void DataVector::SetDexNums(const string& filename) {
 
     // Check if it failed to open.
     if (!FileInput.is_open()) {
-        cout << "There was an error opening the file." << endl;
+        wcout << "There was an error opening the file." << endl;
         return;
     }
     dexNums.resize(0x10000);
@@ -428,16 +426,16 @@ void DataVector::SetDexNums(const string& filename) {
 // Prints the name for a given index.
 void DataVector::PrintName(int index) {
     // Print out index number in hexadecimal and decimal.
-    cout << "Species       : 0x" << hex << index << " (" << dec << index << ")" << endl;
-    cout << "Dex Number    : " << dec << dexNums.at(index) << endl;
+    wcout << "Species       : 0x" << hex << index << " (" << dec << index << ")" << endl;
+    wcout << "Dex Number    : " << dec << dexNums.at(index) << endl;
     if (names.at(index).size() < 30) {
 
         // If the name is less than 30 characters just print it out normally.
-        cout << "Name          : " << names.at(index) << endl;
+        wcout << "Name          : " << names.at(index) << endl;
     }
     else {
         // If it's more than 30 characters truncate it. (Some names are thousands of characters long.)
-        cout << "Name          : " << names.at(index).substr(0, 30) << " ... (Size: " << dec << names.at(index).size() << ")" << endl;
+        wcout << "Name          : " << names.at(index).substr(0, 30) << " ... (Size: " << dec << names.at(index).size() << ")" << endl;
     }
 
 }
@@ -451,7 +449,7 @@ void DataVector::SetAnims(const string &filename1, const string& filename2) {
     AnimIDstream.open(filename1);
 
     if (!AnimIDstream.is_open()) {
-        cout << "There was an error opening the file." << endl;
+        wcout << "There was an error opening the file." << endl;
         return;
     }
     AnimIDs.resize(0x10000);
@@ -465,7 +463,7 @@ void DataVector::SetAnims(const string &filename1, const string& filename2) {
     AnimAddressStream.open(filename2);
     AnimAddresses.resize(0x100);
     if (!AnimAddressStream.is_open()) {
-        cout << "There was an error opening the file." << endl;
+        wcout << "There was an error opening the file." << endl;
         return;
     }
     for (i = 0; i < 0x100; i++) {
@@ -485,8 +483,8 @@ void DataVector::PrintLargest() {
             maxLoc = i;
         }
     }
-    cout << "Max size: " << maxSize << endl;
-    cout << "Species: " << hex << maxLoc << endl;
+    wcout << "Max size: " << maxSize << endl;
+    wcout << "Species: " << hex << maxLoc << endl;
 }
 
 // Outputs a vector of species indices that have a chosen ability 1.
@@ -609,17 +607,17 @@ vector<bool> DataVector::GetStablePokemon(unsigned int minID, unsigned int maxID
 
 // Prints stats and other info for a chosen index.
 void DataVector::PrintDataAtIndex(int index) {
-    cout << "***************************************************************" << endl;
+    wcout << "***************************************************************" << endl;
     PrintName(index);
     dataVector.at(index).PrintStats();
     dataVector.at(index).PrintMisc();
 
-    cout << "Animation ID  : " << dec << AnimIDs.at(index) << endl;
+    wcout << "Animation ID  : " << dec << AnimIDs.at(index) << endl;
     if (AnimIDs.at(index) > 150) {
-        cout << "Address: 0x" << hex << AnimAddresses.at(AnimIDs.at(index)) << dec << endl;
+        wcout << "Address: 0x" << hex << AnimAddresses.at(AnimIDs.at(index)) << dec << endl;
     }
-    cout << "Cry: " << pokeCries.at(index) << endl;
-    cout << "***************************************************************" << endl;
+    wcout << "Cry: " << pokeCries.at(index) << endl;
+    wcout << "***************************************************************" << endl;
 
 }
 void DataVector::SetAbilityNames(const string &filename) {
@@ -629,7 +627,7 @@ void DataVector::SetAbilityNames(const string &filename) {
 
     // Check if it failed to open.
     if (!FileInput.is_open()) {
-        cout << "There was an error opening the file." << endl;
+        wcout << "There was an error opening the file." << endl;
         return;
     }
     // Resize the "names" private data member to be 65536 strings long.
@@ -664,7 +662,7 @@ void DataVector::SetCries(const string& crydata) {
 
     // Check if it failed to open.
     if (!FileInput.is_open()) {
-        cout << "There was an error opening the file." << endl;
+        wcout << "There was an error opening the file." << endl;
         return;
     }
     pokeCries.resize(0x10000);
